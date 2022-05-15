@@ -10,9 +10,10 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 import os
 import sys
 from django.core.wsgi import get_wsgi_application
+from django.contrib.staticfiles.handlers import StaticFilesHandler
 
 path = "/home/katherineLiberona/backendecommerce/backend"
 os.environ['DJANGO_SETTINGS_MODULE'] = 'backend.settings'
 if path not in sys.path:
     sys.path.append(path)
-application = get_wsgi_application()
+application = StaticFilesHandler(get_wsgi_application())
